@@ -10,7 +10,7 @@ import { HttpResponse } from '@angular/common/http';
 describe('ProductoService', () => {
   let httpMock: HttpTestingController;
   let service: ProductoService;
-  const apiEndpointProductoConsulta = `${environment.endpoint}/tiposFamilia`;
+  const apiEndpointProductoConsulta = `${environment.endpoint}/productos`;
   const apiEndpointProductos = `${environment.endpoint}/productos`;
 
   beforeEach(() => {
@@ -29,7 +29,7 @@ describe('ProductoService', () => {
 
   it('deberia listar productos', () => {
     const dummyProductos = [
-      new Producto('1', 'Producto 1'), new Producto('2', 'Producto 2')
+      new Producto(2, 'Producto 2', 500000,'imagen', 'descripcion 2', '8', '2022-03-26', 'calzado', 1), new Producto(2, 'Producto 2', 500000,'imagen', 'descripcion 2', '8', '2022-03-26', 'calzado', 1)
     ];
     service.consultar().subscribe(productos => {
       expect(productos.length).toBe(2);
@@ -41,7 +41,7 @@ describe('ProductoService', () => {
   });
 
   it('deberia crear un producto', () => {
-    const dummyProducto = new Producto('1', 'Producto 1');
+    const dummyProducto = new Producto(2, 'Producto 2', 500000,'imagen', 'descripcion 2', '8', '2022-03-26', 'calzado', 1);
     service.guardar(dummyProducto).subscribe((respuesta) => {
       expect(respuesta).toEqual(true);
     });
@@ -51,11 +51,11 @@ describe('ProductoService', () => {
   });
 
   it('deberia eliminar un producto', () => {
-    const dummyProducto = new Producto('1', 'Producto 1');
+    const dummyProducto = new Producto(3, 'Producto 2', 500000,'imagen', 'descripcion 2', '8', '2022-03-26', 'calzado', 1);
     service.eliminar(dummyProducto).subscribe((respuesta) => {
       expect(respuesta).toEqual(true);
     });
-    const req = httpMock.expectOne(`${apiEndpointProductos}/1`);
+    const req = httpMock.expectOne(`${apiEndpointProductos}/3`);
     expect(req.request.method).toBe('DELETE');
     req.event(new HttpResponse<boolean>({body: true}));
   });

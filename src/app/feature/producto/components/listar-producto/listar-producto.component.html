@@ -14,7 +14,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let producto of listaProductos">
+    <tr *ngFor="let producto of listaProductos | async">
       <td>{{producto.id}}</td>
       <td>{{producto.nombre}}</td>
       <td>{{producto.precio}}</td>

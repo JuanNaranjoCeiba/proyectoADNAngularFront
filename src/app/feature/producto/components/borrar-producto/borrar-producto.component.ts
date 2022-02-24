@@ -7,6 +7,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   templateUrl: './borrar-producto.component.html',
   styleUrls: ['./borrar-producto.component.sass']
 })
+
 export class BorrarProductoComponent implements OnInit {
   productoForm: FormGroup;
   constructor(protected productoServices: ProductoService) { }
@@ -23,8 +24,8 @@ export class BorrarProductoComponent implements OnInit {
 
   private construirFormularioProducto() {
     this.productoForm = new FormGroup({
-      id: new FormControl('',[Validators.required])
+      id: new FormControl('',
+      [Validators.required])
     });
   }
-
 }

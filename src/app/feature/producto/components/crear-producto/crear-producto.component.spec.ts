@@ -49,11 +49,16 @@ describe('CrearProductoComponent', () => {
 
   it('Registrando producto', () => {
     expect(component.productoForm.valid).toBeFalsy();
-    component.productoForm.controls.id.setValue('001');
-    component.productoForm.controls.descripcion.setValue('Producto test');
+    component.productoForm.controls.nombre.setValue('producto1');
+    component.productoForm.controls.precio.setValue(500000);
+    component.productoForm.controls.imagen.setValue('imagen');
+    component.productoForm.controls.descripcion.setValue('descripcion test');
+    component.productoForm.controls.cantidadExistencias.setValue(5);
+    component.productoForm.controls.categoria.setValue('categoria test');
+    component.productoForm.controls.idUsuarioVendedor.setValue(1);
     expect(component.productoForm.valid).toBeTruthy();
 
-    component.cerar();
+    component.crear();
 
     // Aca validamos el resultado esperado al enviar la petición
     // TODO adicionar expect

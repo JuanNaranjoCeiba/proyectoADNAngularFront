@@ -5,6 +5,8 @@ import {
 import { BorrarProductoComponent } from './borrar-producto.component';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductoService } from '@producto/shared/service/producto.service';
+import { HttpService } from '@core/services/http.service';
 
 describe('BorrarProductoComponent', () => {
   let component: BorrarProductoComponent;
@@ -18,6 +20,10 @@ describe('BorrarProductoComponent', () => {
         HttpClientModule,
         RouterTestingModule
       ],
+      providers : [
+        ProductoService,
+        HttpService
+      ]
     })
     .compileComponents();
   }));
