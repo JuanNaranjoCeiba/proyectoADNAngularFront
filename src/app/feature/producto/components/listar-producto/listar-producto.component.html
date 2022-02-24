@@ -1,0 +1,29 @@
+<h1>Listar Productos</h1>
+<table class="container table table-bordered table-striped" id="productos">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>nombre</th>
+      <th>precio</th>
+      <th>imagen</th>
+      <th>descripcion</th>
+      <th>cantidad de existencias</th>
+      <th>fecha de vencimiento de la publicación</th>
+      <th>categoria</th>
+      <th>id usuario vendedor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let producto of listaProductos">
+      <td>{{producto.id}}</td>
+      <td>{{producto.nombre}}</td>
+      <td>{{producto.precio}}</td>
+      <td>{{producto.imagen}}</td>
+      <td>{{producto.descripcion}}</td>
+      <td>{{producto.cantidadExistencias}}</td>
+      <td>{{producto.fechaVencimientoPublicacion | date:'MMMM dd, yyyy'}}</td>
+      <td>{{producto.categoria}}</td>
+      <td>{{producto.idUsuarioVendedor}}</td>
+    </tr>
+  </tbody>
+</table>

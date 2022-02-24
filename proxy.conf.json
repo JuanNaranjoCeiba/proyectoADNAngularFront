@@ -1,0 +1,7 @@
+{
+  "/RegistrarProductos": {
+    "target": "http://localhost:8000",
+    "logLevel": "debug"
+  }
+
+}
