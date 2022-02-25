@@ -59,8 +59,5 @@ describe('CrearProductoComponent', () => {
     expect(component.productoForm.valid).toBeTruthy();
 
     component.crear();
-
-    // Aca validamos el resultado esperado al enviar la petición
-    // TODO adicionar expect
   });
 });

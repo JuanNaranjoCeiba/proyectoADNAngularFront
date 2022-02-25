@@ -35,8 +35,8 @@ pipeline {
             gitTool: 'Default',
             submoduleCfg: [],
             userRemoteConfigs: [[
-                credentialsId: 'GitHub_viestrada22',
-                url:'https://github.com/viestrada22/reservas-front.git'
+                credentialsId: 'GitHub_JuanNaranjoCeiba',
+                url:'https://github.com/JuanNaranjoCeiba/proyectoADNAngularFront.git'
             ]]
         ])
       }
