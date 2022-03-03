@@ -1,67 +1,41 @@
-<h1 class="container mt-5">Registrar Producto</h1>
-<form [formGroup]="productoForm" (ngSubmit)="crear()" class="container">
+<h1 class="container mt-5 text-center">Registrar Producto</h1>
+<form [formGroup]="productoForm" (ngSubmit)="crear()" class="container m-auto">
   <div class="row">
-  </div>
-  <div class="row">
-    <div class="col-sm-4">
-      <div class="col-sm-1">
-        <label>Nombre:</label>
-      </div>
+    <div class="form-group col-md-6">
+      <label>Nombre:</label>
       <input validar type="text" id="nombreProducto" name="nombre" placeholder="Nombre del producto" class="form-control"
-        formControlName="nombre">
+          formControlName="nombre">
     </div>
-
-    <div class="col-sm-4">
-      <div class="col-sm-1">
-        <label>Precio</label>
-      </div>
+    
+    <div class="form-group col-md-6">
+      <label>Precio:</label>
       <input validar type="number" id="precioProducto" name="precio" placeholder="Precio del producto" class="form-control"
-        formControlName="precio">
+          formControlName="precio">
     </div>
-  </div>
 
-  <div class="row mt-3">
-    <div class="col-sm-4">
-      <div class="col-sm-1">
-        <label>Imagen:</label>
-      </div>
-      <input validar type="text" id="imagenProducto" name="imagen" placeholder="Imagen del producto"
-        class="form-control" formControlName="imagen">
-    </div>
-    <div class="col-sm-4">
-      <div class="col-sm-1">
-        <label>Descripción</label>
-      </div>
+    <div class="form-group col-md-6">
+      <label>Descripción</label>
       <input validar type="text" id="descripcionProducto" name="descripcion" placeholder="Descripción del producto" class="form-control"
         formControlName="descripcion">
     </div>
-  </div>
 
-  <div class="row mt-3">
-    <div class="col-sm-4">
-      <div class="col-sm-1 w-100">
-        <label>Cantidad Exsitencias:</label>
-      </div>
+    <div class="form-group col-md-6">
+      <label>Cantidad Exsitencias:</label>
       <input validar type="number" id="cantidadExistenciasProducto" name="cantidadExistencias" placeholder="Cantidad existencias producto"
         class="form-control" formControlName="cantidadExistencias">
     </div>
-    <div class="col-sm-4">
-      <div class="col-sm-1">
-        <label>Categoria:</label>
-      </div>
+
+    <div class="form-group col-md-6">
+      <label>Categoria:</label>
       <input validar type="text" id="categoriaProducto" name="nombre" placeholder="Categoria del producto" class="form-control"
         formControlName="categoria">
     </div>
-  </div>
 
-  <div class="row mt-3">
-    <div class="col-sm-4">
-      <div class="col-sm-1 w-100">
-        <label>Id usuario:</label>
-      </div>
+    <div class="form-group col-md-6">
+      <label>Id usuario:</label>
       <input validar type="number" id="idUsuarioVendedorProducto" name="idUsuarioVendedor" placeholder="Id usuario vendedor"
         class="form-control" formControlName="idUsuarioVendedor">
     </div>
   </div>
-  <button role="button" class="btn btn-primary mt-3" type="submit">Crear Producto</button>
+  <button role="button" id="crearProducto" class="btn btn-primary mt-3" type="submit">Crear Producto</button>
 </form>

@@ -22,4 +22,5 @@ export class ProductoService {
     return this.http.doDelete<boolean>(`${environment.endpoint}/productos/${producto.id}`,
                                                 this.http.optsName('eliminar productos'));
   }
+
 }

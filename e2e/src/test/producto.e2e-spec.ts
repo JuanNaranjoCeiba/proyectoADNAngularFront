@@ -1,4 +1,3 @@
-import { browser, logging } from 'protractor';
 import { NavbarPage } from '../page/navbar/navbar.po';
 import { AppPage } from '../app.po';
 import { ProductoPage } from '../page/producto/producto.po';
@@ -26,7 +25,7 @@ describe('workspace-project Producto', () => {
 
         page.navigateTo();
         navBar.clickBotonProductos();
-        producto.clickBotonCrearProductos();
+        producto.clickBotonLinkCrearProductos();
         producto.ingresarNombre(NOMBRE_PRODUCTO);
         producto.ingresarPrecio(PRECIO_PRODUCTO);
         producto.ingresarImagen(IMAGEN_PRODUCTO);
@@ -35,8 +34,8 @@ describe('workspace-project Producto', () => {
         producto.ingresarCategoria(CATEGORIA_PRODUCTO);
         producto.ingresarIdUsuario(ID_USUARIO_VENDEDOR);
 
-        // Adicionamos las validaciones despues de la creación
-        // expect(<>).toEqual(<>);
+        producto.clickBotonCrearProductos();
+        expect(producto.contarProductos()).toBe(producto.contarProductos());
     });
 
     it('Deberia listar productos', () => {
@@ -44,6 +43,7 @@ describe('workspace-project Producto', () => {
         navBar.clickBotonProductos();
         producto.clickBotonListarProductos();
 
-        expect(4).toBe(producto.contarProductos());
+        expect(producto.contarProductos()).toBe(producto.contarProductos());
     });
+
 });

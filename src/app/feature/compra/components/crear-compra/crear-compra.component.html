@@ -1,0 +1,56 @@
+    <div class="">
+      <div class="card w-75 m-auto">
+        <div class="card-header">
+          <h3>Comprar</h3>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="compraForm" (ngSubmit)="crear()">
+            <div class="form-group d-flex">
+              <div class="w-50">
+                <div>
+                  <label for="idProductoComprado">Seleccione el producto</label>
+                  <select (ngModelChange)="obtenerProductoCompra()" validar name="idProductoComprado" type="text" id="idProductoComprado" formControlName="idProductoComprado">
+                    <option value="" hidden>Seleccione el producto</option>
+                    <option *ngFor="let producto of listaProductos" [value]="producto.id">{{producto.nombre}}</option>
+                  </select>
+                </div>
+                
+                <div *ngIf="productoCompra!=undefined">
+                  <label for="cantidadExistencias">Disponibilidad</label>
+                  <input formControlName="cantidadExistencias" type="number" readonly placeholder="{{productoCompra.cantidadExistencias}}">
+                </div>
+                
+                <div *ngIf="productoCompra!=undefined">
+                  <label for="cantidadProductos">cantidad a comprar</label>
+                  <input validar name="cantidadProductos" (ngModelChange)="validarExistenciasDisponibles($event)" formControlName="cantidadProductos" type="number" min="1" max="{{productoCompra.cantidadExistencias}}">
+                  <strong class="text-danger" *ngIf="validarExistencias">Cantidad de productos Invalida</strong>
+                </div>
+              </div>
+
+              <div class="w-50">
+                <div>
+                  <label for="ciudadEnvio">Ciudad de Envio</label>
+                  <select (ngModelChange)="obtenerEnvioCompra()" validar name="idEnvio" type="text" id="idEnvio" formControlName="idEnvio">
+                    <option value="" hidden>Seleccione la ciudad de Envio</option>
+                    <option *ngFor="let item of listaEnvios" [value]="item.id">{{item.ciudad}}</option>
+                  </select>
+                </div>
+                
+                <div>
+                  <label class="" for="">Identificacion del usuario</label>
+                  <input validar formControlName="idUsuarioComprador" type="number">
+                </div>
+                
+                <div>
+                  <h5 class="text-center">Total compra</h5>
+                  <input readonly name="totalCompra" formControlName="totalCompra" type="number">
+                </div>
+              </div>
+            </div>
+            <div class="w-100 d-flex justify-content-center mt-5">
+              <button class="crearCompra" [disabled]="validarExistencias" type="submit" class="btn btn-primary rounded">Comprar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>

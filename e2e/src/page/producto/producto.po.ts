@@ -2,6 +2,7 @@ import { by, element } from 'protractor';
 
 export class ProductoPage {
     private linkCrearProducto = element(by.id('linkCrearProducto'));
+    private linkEliminarProducto = element(by.id('linkEliminarProducto'));
     private linkListarProductos = element(by.id('linkListarProducto'));
     private inputNombreProducto = element(by.id('nombreProducto'));
     private inputPrecioProducto = element(by.id('precioProducto'));
@@ -9,15 +10,25 @@ export class ProductoPage {
     private inputDescripcionProducto = element(by.id('descripcionProducto'));
     private inputCantidadExistenciasProducto = element(by.id('cantidadExistenciasProducto'));
     private inputCategoriaProducto = element(by.id('categoriaProducto'));
-    private inputIdUsuarioVendedor = element(by.id('idUsuarioVendedor'));
-    private listaProductos = element.all(by.css('ul.productos li'));
+    private inputIdUsuarioVendedor = element(by.id('idUsuarioVendedorProducto'));
+    private listaProductos = element.all(by.css('tr.productos td'));
 
-    async clickBotonCrearProductos() {
+    private botonCrearProducto = element(by.id('crearProducto'));
+
+    async clickBotonLinkCrearProductos() {
         await this.linkCrearProducto.click();
+    }
+
+    async clickBotonCrearProductos(){
+        await this.botonCrearProducto.click();
     }
 
     async clickBotonListarProductos() {
         await this.linkListarProductos.click();
+    }
+
+    async clickBotonEliminarProductos() {
+        await this.linkEliminarProducto.click();
     }
 
     async ingresarNombre(nombreProducto) {

@@ -12,10 +12,11 @@
       <th>fecha de vencimiento de la publicación</th>
       <th>categoria</th>
       <th>id usuario vendedor</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let producto of listaProductos | async">
+    <tr *ngFor="let producto of listaProductos | async; let i = index" class="productos">
       <td>{{producto.id}}</td>
       <td>{{producto.nombre}}</td>
       <td>{{producto.precio}}</td>
@@ -25,6 +26,9 @@
       <td>{{producto.fechaVencimientoPublicacion | date:'MMMM dd, yyyy'}}</td>
       <td>{{producto.categoria}}</td>
       <td>{{producto.idUsuarioVendedor}}</td>
+      <td class="">
+        <button id="{{'eliminar-producto' + i}}" class="btn btn-outline-danger" (click)="eliminarProducto(producto)" >Eliminar</button>
+      </td>
     </tr>
   </tbody>
 </table>
